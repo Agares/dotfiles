@@ -1,0 +1,119 @@
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+exec feh --bg-fill /home/agares/wallpaper.jpg
+exec xcompmgr
+
+set $mod Mod4
+
+#look'n'feel
+font pango: Lato Light, FontAwesome 10
+new_window normal 0
+
+#+colours 
+# <colorclass>          <border> <background> <text>  <indicator> <child_border>
+client.focused          #111111  #111111      #ad7790 #ff1885     #111111
+client.focused_inactive #111111  #111111      #7f3257 #7e003b     #111111
+client.unfocused        #111111  #111111      #7f3257 #7e003b     #111111
+
+# keybindings
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86MonBrightnessUp exec xbacklight +10
+bindsym XF86MonBrightnessDown exec xbacklight -10
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec dmenu_run
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+q split h
+bindsym $mod+w split v
+bindsym $mod+p exec i3lock -i /home/agares/lockscreen.jpg -u
+bindsym $mod+e focus parent
+bindsym $mod+n floating toggle
+bindsym $mod+m fullscreen toggle
+
+# switch between workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+set $workspace_internet "1:&#xf0ac;"
+set $workspace_music "2:&#xf001;"
+set $workspace_code "3:&#xf121;"
+set $workspace_server "4:&#xf233;"
+set $workspace_5 "5:V"
+set $workspace_6 "6:VI"
+set $workspace_7 "7:VII"
+set $workspace_8 "8:VIII"
+set $workspace_9 "9:IX"
+set $workspace_terminal "10:&#xf120;"
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace_internet
+bindsym $mod+2 workspace $workspace_music
+bindsym $mod+3 workspace $workspace_code
+bindsym $mod+4 workspace $workspace_server
+bindsym $mod+5 workspace $workspace_5
+bindsym $mod+6 workspace $workspace_6
+bindsym $mod+7 workspace $workspace_7
+bindsym $mod+8 workspace $workspace_8
+bindsym $mod+9 workspace $workspace_9
+bindsym $mod+0 workspace $workspace_terminal
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace_internet
+bindsym $mod+Shift+2 move container to workspace $workspace_music
+bindsym $mod+Shift+3 move container to workspace $workspace_code
+bindsym $mod+Shift+4 move container to workspace $workspace_server
+bindsym $mod+Shift+5 move container to workspace $workspace_5
+bindsym $mod+Shift+6 move container to workspace $workspace_6
+bindsym $mod+Shift+7 move container to workspace $workspace_7
+bindsym $mod+Shift+8 move container to workspace $workspace_8
+bindsym $mod+Shift+9 move container to workspace $workspace_9
+bindsym $mod+Shift+0 move container to workspace $workspace_terminal
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	font pango: Fira Code, FontAwesome 9
+	strip_workspace_numbers yes
+
+	colors {
+		background #111111
+		statusline #eeeeee
+		separator #111111
+				# border bckg font
+		focused_workspace #7e003b #111111 #ff1885
+		active_workspace #7e003b #73003b #ff1885
+		inactive_workspace #444444 #222222 #eeeeee
+	}
+	
+
+	position top
+    status_command /home/agares/PycharmProjects/statusbar/__main__.py
+}

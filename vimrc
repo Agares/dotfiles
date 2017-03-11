@@ -33,6 +33,8 @@ Bundle 'OmniSharp/omnisharp-vim.git'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-dispatch.git'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'hashivim/vim-vagrant'
+Bundle 'rodjek/vim-puppet'
 call vundle#end()
 
 filetype plugin indent on

@@ -53,7 +53,6 @@ plugins=(git composer cp docker docker-compose ssh-agent)
 
 # User configuration
 
-  export PATH="/home/agares/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/x86_64-pc-linux-gnu/gcc-bin/4.9.3"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -83,4 +82,3 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export EDITOR='vim'
-export RUST_SRC_PATH="/home/agares/local/rustc-1.8.0/src"

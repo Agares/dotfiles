@@ -44,8 +44,8 @@ bindsym $mod+n floating toggle
 bindsym $mod+m fullscreen toggle
 
 # switch between workspaces
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Shift+Tab workspace prev_on_output
 
 set $workspace_internet "1:&#xf0ac;"
 set $workspace_music "2:&#xf001;"

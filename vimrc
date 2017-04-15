@@ -12,6 +12,8 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 let g:SuperTabDefaultCompletionType="<c-x><c-o>"
+let g:OmniSharp_server_type = 'roslyn'
+let g:OmniSharp_prefer_global_sln = 1
 
 call vundle#begin()
 Bundle 'ervandew/supertab'

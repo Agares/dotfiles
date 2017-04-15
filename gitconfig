@@ -1,0 +1,25 @@
+[core]
+	excludesfile = /home/agares/.gitignore_global
+[user]
+	email = me@agares.info
+	name = agares
+[push]
+	default = simple
+	followTags = true
+[diff]
+	compactionHeuristic = true
+	tool = icdiff
+[difftool]
+	prompt = false
+[difftool "icdiff"]
+	cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[alias]
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+[merge]
+	ff = only
+	conflictstyle = diff3
+[status]
+	showUntrackedFiles = all
+[transfer]
+	fsckobjects = true
+

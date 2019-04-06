@@ -115,5 +115,5 @@ bar {
 	
 
 	position top
-    status_command /home/agares/PycharmProjects/statusbar/__main__.py
+    status_command /home/josey/glowing-telegram/venv/bin/python3 /home/josey/glowing-telegram/__main__.py
 }
